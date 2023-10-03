@@ -13,11 +13,15 @@ public class UpdatedDropDown {
     public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
         driver.findElement(By.id("divpaxinfo")).click();
         Thread.sleep(2000L);
 
+        driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click();
+        System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());
+        //Count the number of checkboxes
+        System.out.println(driver.findElements(By.cssSelector("input[type='checkbox']")).size());
 
         /*//driver.findElement(By.id("hrefIncAdt")).click();
         //driver.findElement(By.id("btnclosepaxoption")).click();
